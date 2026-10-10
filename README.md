@@ -47,6 +47,7 @@ Postman for Windows: Version 12.31.3
 | 6 | Талбар дутуу илгээх | POST /registrations | 400 | "ERROR_BAD_REQUEST" |
 | 7 | Эвдэрсэн JSON илгээх | POST /registrations | 400 | "ERROR_BAD_JSON" |
 | 8 | Урьдачгүй хичээл (Boundary) | POST /registrations | 201 | "OK" |
+| 9 | Давхар алдааны шалгалт (Оюутан болон хичээл хоёулаа системд байхгүй) | `POST /registrations` (`studentID: "NO_STUDENT"`, `courseID: "NO_COURSE"`) | 200 OK | `result: "ERROR_NO_STUDENT"` (Сервер эхлээд оюутныг шалгаж алдааг буцаана) |
 
 Newman үр дүнгийн хүснэгт
 
