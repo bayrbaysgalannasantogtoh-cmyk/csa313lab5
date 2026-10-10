@@ -55,10 +55,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/students/B231234567",
+          "raw": "http://localhost:3000/students/B231234567",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "students",
             "B231234567"
@@ -82,10 +84,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/courses/CS313",
+          "raw": "http://localhost:3000/courses/CS313",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "courses",
             "CS313"
@@ -120,10 +124,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -157,10 +163,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -194,10 +202,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -220,10 +230,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/students/INACTIVE_USER",
+          "raw": "http://localhost:3000/students/INACTIVE_USER",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "students",
             "INACTIVE_USER"
@@ -258,10 +270,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -295,10 +309,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -321,10 +337,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/students/NO_PREREQ_USER",
+          "raw": "http://localhost:3000/students/NO_PREREQ_USER",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "students",
             "NO_PREREQ_USER"
@@ -359,10 +377,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -396,10 +416,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -433,10 +455,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]
@@ -459,10 +483,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/courses/MATH101",
+          "raw": "http://localhost:3000/courses/MATH101",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "courses",
             "MATH101"
@@ -497,10 +523,12 @@
           }
         },
         "url": {
-          "raw": "{{baseUrl}}/registrations",
+          "raw": "http://localhost:3000/registrations",
+          "protocol": "http",
           "host": [
-            "{{baseUrl}}"
+            "localhost"
           ],
+          "port": "3000",
           "path": [
             "registrations"
           ]

@@ -3,32 +3,32 @@ newman
 lab05-collection
 
 → Get data
-  GET postman-echo.com/get [200 OK, 1.25kB, 410ms]
+  GET postman-echo.com/get [200 OK, 1.25kB, 579ms]
   ✓  Status code is 200
 
 → Тест 1: Амжилттай бүртгэл (Happy Path)
-  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 6ms]
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 11ms]
 
 → Тест 1: Амжилттай бүртгэл (Happy Path)
-  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 2ms]
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
 
 → Тест 1: Амжилттай бүртгэл (Happy Path)
-  POST http://localhost:3000/registrations [201 Created, 202B, 2ms]
+  POST http://localhost:3000/registrations [201 Created, 202B, 4ms]
   1. Status code is 201
   ✓  Result is OK and registrationID is number
 
 → Тест 2: Оюутан байхгүй үеийн шалгалт
-  POST http://localhost:3000/registrations [200 OK, 192B, 6ms]
+  POST http://localhost:3000/registrations [200 OK, 192B, 3ms]
   ✓  Status code is 200
   ✓  Result is ERROR_NO_STUDENT
 
 → Тест 3: Оюутан идэвхгүй байх үеийн шалгалт
-  POST http://localhost:3000/registrations [200 OK, 192B, 2ms]
+  POST http://localhost:3000/registrations [200 OK, 192B, 5ms]
   ✓  Status code is 200
   ✓  Result is ERROR_NO_STUDENT
 
 → Тест 3: Оюутан идэвхгүй байх үеийн шалгалт
-  PUT http://localhost:3000/students/INACTIVE_USER [200 OK, 178B, 2ms]
+  PUT http://localhost:3000/students/INACTIVE_USER [200 OK, 178B, 3ms]
 
 → Тест 4: Хичээл байхгүй үеийн шалгалт
   POST http://localhost:3000/registrations [200 OK, 198B, 4ms]
@@ -36,12 +36,12 @@ lab05-collection
   ✓  Result is ERROR_INACTIVE_STUDENT
 
 → Тест 4: Хичээл байхгүй үеийн шалгалт
-  POST http://localhost:3000/registrations [200 OK, 191B, 4ms]
+  POST http://localhost:3000/registrations [200 OK, 191B, 3ms]
   ✓  Status code is 200
   ✓  Result is ERROR_NO_COURSE
 
 → Тест 5: Урьдач нөхцөл дутуу байх үеийн шалгалт
-  PUT http://localhost:3000/students/NO_PREREQ_USER [200 OK, 178B, 3ms]
+  PUT http://localhost:3000/students/NO_PREREQ_USER [200 OK, 178B, 2ms]
 
 → Тест 5: Урьдач нөхцөл дутуу байх үеийн шалгалт
   POST http://localhost:3000/registrations [200 OK, 215B, 2ms]
@@ -49,7 +49,7 @@ lab05-collection
   ✓  Result is ERROR_PREREQUISITES
 
 → Тест 6: Шаардлагатай талбар дутуу илгээх (Bad Request)
-  POST http://localhost:3000/registrations [400 Bad Request, 202B, 1ms]
+  POST http://localhost:3000/registrations [400 Bad Request, 202B, 2ms]
   ✓  Status code is 400
   ✓  Result is ERROR_BAD_REQUEST
 
@@ -59,10 +59,10 @@ lab05-collection
   ✓  Result is ERROR_BAD_JSON
 
 → Тест 8: Урьдач нөхцөлгүй хичээлд бүртгүүлэх (Boundary case) Setup Course
-  PUT http://localhost:3000/courses/MATH101 [200 OK, 178B, 9ms]
+  PUT http://localhost:3000/courses/MATH101 [200 OK, 178B, 6ms]
 
 → Тест 8: Урьдач нөхцөлгүй хичээлд бүртгүүлэх (Boundary case) Test request
-  POST http://localhost:3000/registrations [201 Created, 202B, 2ms]
+  POST http://localhost:3000/registrations [201 Created, 202B, 1ms]
   ✓  Status code is 201
   ✓  Result is OK
 
@@ -79,11 +79,11 @@ lab05-collection
 ├─────────────────────────┼───────────────────┼───────────────────┤
 │              assertions │                19 │                 1 │
 ├─────────────────────────┴───────────────────┴───────────────────┤
-│ total run duration: 718ms                                       │
+│ total run duration: 882ms                                       │
 ├─────────────────────────────────────────────────────────────────┤
 │ total data received: 646B (approx)                              │
 ├─────────────────────────────────────────────────────────────────┤
-│ average response time: 30ms [min: 1ms, max: 410ms, s.d.: 101ms] │
+│ average response time: 42ms [min: 1ms, max: 579ms, s.d.: 143ms] │
 └─────────────────────────────────────────────────────────────────┘
 
 [31m  # [39m[31m failure        [39m[31m detail                                                [39m
