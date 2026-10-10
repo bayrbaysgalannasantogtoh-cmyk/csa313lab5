@@ -1,0 +1,518 @@
+{
+  "info": {
+    "_postman_id": "19323b20-3db8-40ab-b5ec-25c926443d42",
+    "name": "lab05-collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58805447",
+    "_collection_link": "https://go.postman.co/collection/58805447-19323b20-3db8-40ab-b5ec-25c926443d42?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "postman-echo.com/get",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "get"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 1: Амжилттай бүртгэл (Happy Path)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"status\": \"active\", \"coursesTaken\": [\"CS201\"]}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students/B231234567",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "students",
+            "B231234567"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 1: Амжилттай бүртгэл (Happy Path)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"prerequisites\": [\"CS201\"]}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/courses/CS313",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "courses",
+            "CS313"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 1: Амжилттай бүртгэл (Happy Path)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\npm.test(\"Result is OK and registrationID is number\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"OK\");\r\n    pm.expect(jsonData.registrationID).to.be.a(\"number\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"B231234567\", \"courseID\": \"CS313\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 2: Оюутан байхгүй үеийн шалгалт",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Result is ERROR_NO_STUDENT\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"ERROR_NO_STUDENT\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"studentID\": \"NOT_EXIST_STUDENT\",\r\n  \"courseID\": \"CS313\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 3: Оюутан идэвхгүй байх үеийн шалгалт",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\npm.test(\"Result is ERROR_NO_STUDENT\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"ERROR_NO_STUDENT\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"NOT_EXIST_STUDENT\", \"courseID\": \"CS313\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 3: Оюутан идэвхгүй байх үеийн шалгалт",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"status\": \"inactive\", \"coursesTaken\": [\"CS201\"]}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students/INACTIVE_USER",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "students",
+            "INACTIVE_USER"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 4: Хичээл байхгүй үеийн шалгалт",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\npm.test(\"Result is ERROR_INACTIVE_STUDENT\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"ERROR_INACTIVE_STUDENT\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"INACTIVE_USER\", \"courseID\": \"CS313\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 4: Хичээл байхгүй үеийн шалгалт",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\npm.test(\"Result is ERROR_NO_COURSE\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"ERROR_NO_COURSE\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"B231234567\", \"courseID\": \"NO_SUCH_COURSE\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 5: Урьдач нөхцөл дутуу байх үеийн шалгалт",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"status\": \"active\", \"coursesTaken\": []}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/students/NO_PREREQ_USER",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "students",
+            "NO_PREREQ_USER"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 5: Урьдач нөхцөл дутуу байх үеийн шалгалт",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\npm.test(\"Result is ERROR_PREREQUISITES\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"ERROR_PREREQUISITES\");\r\n    pm.expect(jsonData.missing).to.include(\"CS201\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"NO_PREREQ_USER\", \"courseID\": \"CS313\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 6: Шаардлагатай талбар дутуу илгээх (Bad Request)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 400\", function () {\r\n    pm.response.to.have.status(400);\r\n});\r\npm.test(\"Result is ERROR_BAD_REQUEST\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"ERROR_BAD_REQUEST\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"B231234567\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 7: Буруу JSON бүтэц илгээх",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 400\", function () {\r\n    pm.response.to.have.status(400);\r\n});\r\npm.test(\"Result is ERROR_BAD_JSON\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"ERROR_BAD_JSON\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"B231234567\", \"courseID\":",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 8: Урьдач нөхцөлгүй хичээлд бүртгүүлэх (Boundary case) Setup Course",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"prerequisites\": []}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/courses/MATH101",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "courses",
+            "MATH101"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Тест 8: Урьдач нөхцөлгүй хичээлд бүртгүүлэх (Boundary case) Test request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () {\r\n    pm.response.to.have.status(201);\r\n});\r\npm.test(\"Result is OK\", function () {\r\n    var jsonData = pm.response.json();\r\n    pm.expect(jsonData.result).to.eql(\"OK\");\r\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"studentID\": \"B231234567\", \"courseID\": \"MATH101\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/registrations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
